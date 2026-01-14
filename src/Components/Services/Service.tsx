@@ -1,6 +1,9 @@
+'use client';
+
 import { motion } from "motion/react";
 import TextReveal from "@/utils/TextReveal";
 import { CreativeData } from "./creativeFieldData";
+import { useRouter } from "next/navigation";
 
 interface Props {
   item: CreativeData;
@@ -9,6 +12,8 @@ interface Props {
 }
 
 const Service = ({ item, ServiceList, goToContact }: Props) => {
+  const router = useRouter();
+
   return (
     <motion.div
       key={item.id}
@@ -110,14 +115,14 @@ const Service = ({ item, ServiceList, goToContact }: Props) => {
             <motion.button
               className="hidden md:block xl:hidden relative bg-white text-black font-Glitz w-full pt-2 pb-3 font-medium transition-colors duration-300 ease-in-out hover:bg-black hover:text-white cursor-pointer overflow-hidden group"
               whileTap={{ scale: 0.95 }}
-              onClick={goToContact}
+              onClick={() => router.push("/work")}
             >
               <motion.span className="block transition-transform duration-300 ease-out group-hover:-translate-y-[150%]">
-                Let&apos;s Build Together
+                Want to see more
               </motion.span>
 
               <motion.span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out translate-y-[150%] group-hover:translate-y-[0%]">
-                Let&apos;s Build Together
+                Want to see more
               </motion.span>
             </motion.button>
           </div>
@@ -171,14 +176,14 @@ const Service = ({ item, ServiceList, goToContact }: Props) => {
               <motion.button
                 className="relative bg-white text-black font-Glitz w-full py-2 font-medium transition-colors duration-300 ease-in-out hover:bg-black hover:text-white cursor-pointer overflow-hidden group"
                 whileTap={{ scale: 0.95 }}
-                onClick={goToContact}
+                onClick={() => router.push("/work")}
               >
                 <motion.span className="block transition-transform duration-300 ease-out group-hover:-translate-y-[150%]">
-                  Let&apos;s Build Together
+                  Want to see more
                 </motion.span>
 
                 <motion.span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out translate-y-[150%] group-hover:translate-y-[0%]">
-                  Let&apos;s Build Together
+                  Want to see more
                 </motion.span>
               </motion.button>
             </motion.div>
