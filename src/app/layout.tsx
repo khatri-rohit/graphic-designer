@@ -159,6 +159,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
+        {/* Bing Site Verification */}
+        <meta name="msvalidate.01" content="6852AF282FADEF20AC3C90E22758B0D8" />
+
         {/* Preload critical fonts */}
         <link
           rel="preload"
