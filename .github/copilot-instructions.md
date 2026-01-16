@@ -1,127 +1,24 @@
-# Nitin Portfolio - Copilot Instructions
+<frontend_aesthetics>
 
-## Project Overview
+You tend to converge toward generic, “on distribution” outputs. In frontend design, this creates what users call the “AI slop” aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.
 
-A single-page portfolio website for a VFX/Graphic Designer built with Next.js 15 (App Router), React 19, and heavy animation libraries (GSAP, Motion/Framer Motion). The site features a preloader, smooth scrolling via Lenis, and rich scroll-triggered animations.
+Focus on:
 
-## Architecture
+Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend’s aesthetics.
 
-### Component Structure
+Color & Theme: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration.
 
-- **Entry Point**: `src/app/page.tsx` → `HomeClient` (client component orchestrator)
-- **Section Components**: `HeroSection`, `About`, `CreativeFields`, `Exprience`, `Contact`
-- **Utility Components**: `PreLoader`, `Navbar`, `TextReveal`, `MagneticEffect`
-- **Data Files**: `timelineData.ts`, `creativeFieldData.ts` - keep data separate from components
+Motion: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions.
 
-### Key Patterns
+Backgrounds: Create atmosphere and depth rather than defaulting to solid colors. Layer CSS gradients, use geometric patterns, or add contextual effects that match the overall aesthetic.
 
-```
-src/Components/[SectionName]/
-  ├── SectionName.tsx    # Main component
-  └── relatedData.ts     # Data/config (if needed)
-```
+Avoid generic AI-generated aesthetics:
 
-## Animation Stack
+• Overused font families (Inter, Roboto, Arial, system fonts)
+• Clichéd color schemes (particularly purple gradients on white backgrounds)
+• Predictable layouts and component patterns
+• Cookie-cutter design that lacks context-specific character
 
-### Libraries & Usage
+Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes, different fonts, different aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this. It is critical that you think outside the box.
 
-| Library                  | Purpose                               | Example File                      |
-| ------------------------ | ------------------------------------- | --------------------------------- |
-| `motion/react`           | Component animations, AnimatePresence | `HomeClient.tsx`, `PreLoader.tsx` |
-| `gsap` + `ScrollTrigger` | Scroll-based reveals, SplitText       | `TextReveal.tsx`, `About.tsx`     |
-| `lenis`                  | Smooth scroll behavior                | `HomeClient.tsx`                  |
-
-### Animation Conventions
-
-- Use `'use client'` directive for all animated components
-- GSAP for text reveals with `SplitText` plugin (see `TextReveal.tsx`)
-- Motion for enter/exit transitions with `AnimatePresence`
-- Mobile detection disables complex effects (magnifying glass, hover states)
-
-```tsx
-// Standard mobile check pattern used throughout
-const checkIsMobile = () => {
-  const isMobileUA =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      userAgent
-    );
-  const isTouchDevice =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  const isSmallScreen = window.innerWidth <= 1024;
-  return isMobileUA || isTouchDevice || isSmallScreen;
-};
-```
-
-## Styling
-
-### Tailwind 4 + Custom Fonts
-
-- Tailwind imported via `@import "tailwindcss"` in `globals.css`
-- Custom fonts: `dahlia`, `dahlia-bold`, `SpaceGrotesk` variants
-- Use utility classes: `.font-dahlia`, `.font-SpaceGrotesk`, `.font-SpaceGrotesk-light`
-- CSS variables: `--background: #0F0E0E`, `--foreground: #ededed`
-
-### Responsive Design
-
-- Mobile-first breakpoints: `sm:`, `lg:`, `xl:`, `2xl:`
-- Navbar hidden on mobile (`!isMobile && <Navbar />`)
-- Section padding scales: `p-4 sm:p-6 lg:p-10`
-
-## Contact Form Flow
-
-The contact section uses a multi-step form with typed state machine:
-
-```tsx
-type Step =
-  | "name"
-  | "statement1"
-  | "through"
-  | "statement3"
-  | "service"
-  | "statement2"
-  | "email"
-  | "completion"
-  | "complete";
-```
-
-State is lifted to `HomeClient` and passed down to coordinate focus between `CreativeFields` and `Contact` sections.
-
-## Development Commands
-
-```bash
-npm run dev      # Start dev server (localhost:3000)
-npm run build    # Production build (ignores TS/ESLint errors - see next.config.ts)
-npm run lint     # ESLint check
-```
-
-## File Naming & Conventions
-
-- Components: PascalCase (`HeroSection.tsx`)
-- Utilities/hooks: camelCase (`useMousePosition.ts`, `scrollbarManager.ts`)
-- Data files: camelCase (`timelineData.ts`, `creativeFieldData.ts`)
-- **Note**: "Experience" is spelled as `Exprience` throughout (existing typo, maintain consistency)
-
-## Assets
-
-- `/public/fonts/` - Custom font files (.woff, .ttf)
-- `/public/img/` - Static images, organized by section (`Brand/`, `exprience/`)
-- `/public/videos/` - Background and showcase videos (.webm, .mp4)
-
-## Key Dependencies
-
-- `@gsap/react` - React hooks for GSAP (`useGSAP`)
-- `@mui/material` + `@mui/icons-material` - Navbar icons, Box component
-- `@iconify/react` - Social media icons in About section
-- `@vercel/analytics` - Analytics integration (already configured in layout)
-
-## Common Ref Patterns
-
-Sections use forwarded refs for scroll navigation:
-
-```tsx
-interface Props {
-  sectionRef: React.RefObject<HTMLElement | null>;
-}
-```
-
-Navbar receives all section refs for intersection-based active state tracking.
+</frontend_aesthetics>
