@@ -407,7 +407,7 @@ const About = ({ container, lenisRef, aboutRef }: Props) => {
                 }}
               >
                 <TextReveal delay={isMobile ? 0 : 1.7}>
-                  <motion.span
+                  <motion.h1
                     className="w-full"
                     whileHover={{
                       scale: 1.05,
@@ -418,7 +418,7 @@ const About = ({ container, lenisRef, aboutRef }: Props) => {
                     }}
                   >
                     Nitin Khatri <span className="hidden sm:inline">-</span>
-                  </motion.span>
+                  </motion.h1>
                 </TextReveal>
                 <motion.div
                   className="relative min-w-[200px] sm:min-w-[250px] md:min-w-[300px] lg:min-w-[250px] xl:min-w-[300px] 2xl:min-w-[350px] h-[1.2em]"
