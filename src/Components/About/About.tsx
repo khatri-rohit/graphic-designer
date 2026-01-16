@@ -430,15 +430,17 @@ const About = ({ container, lenisRef, aboutRef }: Props) => {
                     ease: "easeOut",
                   }}
                 >
-                  <div className="flex flex-col" ref={textContainerRef}>
-                    {isMobile ?
-                      (
-                        <span
-                          className="absolute top-0 left-0 whitespace-nowrap h-[1.2em] flex items-center"
-                        >
-                          {words[0]}
-                        </span>
-                      ) : words.map((word, index) => (
+                  {isMobile ? (
+                    <div className="flex flex-col">
+                      <span
+                        className="absolute top-0 left-0 whitespace-nowrap h-[1.2em] flex items-center"
+                      >
+                        {words[0]}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col" ref={textContainerRef}>
+                      {words.map((word, index) => (
                         <span
                           key={index}
                           className="absolute top-0 left-0 whitespace-nowrap h-[1.2em] flex items-center"
@@ -446,7 +448,8 @@ const About = ({ container, lenisRef, aboutRef }: Props) => {
                           {word}
                         </span>
                       ))}
-                  </div>
+                    </div>
+                  )}
                 </motion.div>
               </motion.div>
 

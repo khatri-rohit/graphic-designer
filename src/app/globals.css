@@ -3,6 +3,7 @@
 @font-face {
   font-family: "dahlia-bold";
   src: url("../../public/fonts/dahlia-bold.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("../../public/fonts/dahlia-regular.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("../../public/fonts/Glitz.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -24,13 +27,15 @@
   font-style: normal;
   font-weight: normal;
   src: url("../../public/fonts/SpaceGrotesk-Regular.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "SpaceGrotesk-light";
   font-style: normal;
-  font-weight: normal;
-  src: url("../../public/fonts/SpaceGrotesk-Light.ttf") format("woff");
+  font-weight: 300;
+  src: url("../../public/fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +43,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("../../public/fonts/SpaceGrotesk-Regular.woff") format("woff");
+  font-display: swap;
 }
 
 :root {

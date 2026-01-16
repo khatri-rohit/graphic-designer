@@ -1,8 +1,8 @@
-import { useRef } from 'react';
 import { motion } from "motion/react";
 import Service from './Service';
 import TextReveal from '@/utils/TextReveal';
 import { creativeData } from './creativeFieldData';
+import VideoSection from "../VideoSection";
 
 const ServiceList = ["Brand Identity & Design", "Motion Graphics & Animation", "3D & Visual Effects (VFX)", "Video Post-Production"];
 
@@ -16,8 +16,6 @@ interface Props {
 }
 
 const CreativeFields = ({ currentStep, nameInputRef, emailInputRef, servicesRef }: Props) => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-
     const goToContact = () => {
         if (currentStep === 'name' && nameInputRef.current) {
             nameInputRef.current.focus();
@@ -58,32 +56,7 @@ const CreativeFields = ({ currentStep, nameInputRef, emailInputRef, servicesRef 
                     </div>
 
                     {/* Video Section */}
-                    <div className="flex-1 relative overflow-hidden h-[50vh] sm:h-[60vh] lg:h-[calc(100vh-400px)] mx-4 sm:mx-6 lg:mx-10 mb-4 sm:mb-6 lg:mb-10 rounded-lg lg:rounded-xl">
-                        <motion.video
-                            ref={videoRef}
-                            // onClick={() => {
-                            //     if (!videoRef.current) return;
-                            //     if (videoRef.current.paused) {
-                            //         videoRef.current.play();
-                            //         return;
-                            //     }
-                            //     videoRef.current.pause();
-                            // }}
-                            src="/videos/portfolio-video.mp4"
-                            className="absolute inset-0 w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500 ease-out"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        />
-
-                        {/* Play/Pause indicator overlay */}
-                        {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
-                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                                <div className="w-0 h-0 border-l-[12px] sm:border-l-[16px] border-l-white border-t-[8px] sm:border-t-[10px] border-t-transparent border-b-[8px] sm:border-b-[10px] border-b-transparent ml-1"></div>
-                            </div>
-                        </div> */}
-                    </div>
+                    <VideoSection />
 
                     {/* Mobile-specific call to action */}
                     {/* <div className="block lg:hidden px-4 sm:px-6 pb-8">
