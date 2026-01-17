@@ -14,6 +14,7 @@ import LiquidEther from "./LiquidEther";
 
 import { timelineData } from '@/Components/Exprience/timelineData';
 import { useScrollbarToggle } from '@/utils/scrollbarManager';
+import ScrollToTop from "../ScrollToTop";
 
 type Step = 'name' | 'statement1' | 'through' | 'statement3' | 'service' | 'statement2' | 'email' | 'completion' | 'complete';
 
@@ -141,6 +142,7 @@ export default function HomeClient() {
                     nameInputRef={nameInputRef}
                     emailInputRef={emailInputRef} />
             </motion.div>
+            <ScrollToTop />
         </main>
     );
 }
