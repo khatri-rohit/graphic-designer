@@ -1,8 +1,11 @@
 export const siteConfig = {
   name: "Nitin Khatri",
-  title: "Nitin Khatri - VFX & Graphic Designer",
+  title: "Nitin Khatri — VFX Artist, Motion Designer & Graphic Designer",
   description:
-    "I am a creative VFX and graphic designer specializing in visual storytelling, motion graphics, and digital artistry. Explore a showcase of my innovative projects blending imagination with technical expertise.",
+    "Portfolio of Nitin Khatri featuring cinematic VFX, motion graphics, brand visuals, and post-production work crafted for startups, agencies, and global campaigns.",
+  socialTitle: "Nitin Khatri — VFX Artist, Motion Designer & Graphic Designer",
+  socialDescription:
+    "Portfolio of Nitin Khatri featuring cinematic VFX, motion graphics, brand visuals, and post-production work crafted for startups, agencies, and global campaigns.",
   url: "https://www.nitinkhatri.design",
   ogImage: "/img/hellocopy.png",
   twitterImage: "/img/Profile.jpg",
@@ -82,8 +85,11 @@ export const siteConfig = {
   verification: {
     // Add verification codes when available
     google: "", // Google Search Console verification
-    bing: "", // Bing Webmaster Tools verification
+    bing: "6852AF282FADEF20AC3C90E22758B0D8", // Bing Webmaster Tools verification
     yandex: "", // Yandex verification
+  },
+  social: {
+    twitterHandle: "@nitinkhatri",
   },
 };
 

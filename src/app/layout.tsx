@@ -37,25 +37,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: siteConfig.socialTitle,
+    description: siteConfig.socialDescription,
     siteName: `${siteConfig.name} Portfolio`,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: `${siteConfig.url}${siteConfig.ogImage}`,
         width: 1200,
         height: 630,
-        alt: siteConfig.title,
+        alt: `${siteConfig.name} portfolio preview featuring VFX and motion design projects`,
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.title} Portfolio`,
-    description: siteConfig.description,
-    images: [siteConfig.twitterImage],
-    creator: '@nitinkhatri', // Update with actual Twitter handle
+    title: siteConfig.socialTitle,
+    description: siteConfig.socialDescription,
+    images: [`${siteConfig.url}${siteConfig.twitterImage}`],
+    creator: siteConfig.social.twitterHandle,
   },
   icons: {
     icon: [
@@ -124,7 +124,7 @@ export default function RootLayout({
         ))}
 
         {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
         {/* Theme Color for browsers */}
         <meta name="theme-color" content="#000000" />
@@ -158,9 +158,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Bing Site Verification */}
-        <meta name="msvalidate.01" content="6852AF282FADEF20AC3C90E22758B0D8" />
 
         {/* Preload critical fonts */}
         <link

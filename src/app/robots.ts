@@ -1,14 +1,15 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/config/seo";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://www.nitinkhatri.design";
+  const baseUrl = siteConfig.url;
 
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        disallow: ["/api/", "/private/"],
       },
       {
         userAgent: "GPTBot",
@@ -19,6 +20,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
+    host: baseUrl,
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

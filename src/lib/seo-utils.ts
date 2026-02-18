@@ -34,9 +34,17 @@ export function generatePageMetadata({
 }: PageSEOProps = {}): Metadata {
   const pageTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.title;
   const pageDescription = description || siteConfig.description;
-  const pageImage = image || siteConfig.ogImage;
+  const pageImage = image
+    ? image.startsWith("http")
+      ? image
+      : `${siteConfig.url}${image}`
+    : `${siteConfig.url}${siteConfig.ogImage}`;
   const pageUrl = url || siteConfig.url;
   const pageKeywords = keywords || siteConfig.keywords;
+  const socialTitle = title
+    ? `${title} | ${siteConfig.name}`
+    : siteConfig.socialTitle;
+  const socialDescription = description || siteConfig.socialDescription;
 
   return {
     title: pageTitle,
@@ -47,15 +55,15 @@ export function generatePageMetadata({
       type,
       locale: "en_US",
       url: pageUrl,
-      title: pageTitle,
-      description: pageDescription,
+      title: socialTitle,
+      description: socialDescription,
       siteName: siteConfig.name,
       images: [
         {
           url: pageImage,
           width: 1200,
           height: 630,
-          alt: pageTitle,
+          alt: `${siteConfig.name} portfolio preview`,
         },
       ],
       ...(publishedTime && { publishedTime }),
@@ -64,9 +72,10 @@ export function generatePageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: pageTitle,
-      description: pageDescription,
+      title: socialTitle,
+      description: socialDescription,
       images: [pageImage],
+      creator: siteConfig.social.twitterHandle,
     },
     alternates: {
       canonical: pageUrl,
@@ -143,12 +152,12 @@ export function validateMetadata(metadata: PageSEOProps): {
   if (metadata.description) {
     if (metadata.description.length < 120) {
       warnings.push(
-        "Description is shorter than recommended (120-160 characters)"
+        "Description is shorter than recommended (120-160 characters)",
       );
     }
     if (metadata.description.length > 160) {
       warnings.push(
-        "Description is longer than recommended (120-160 characters)"
+        "Description is longer than recommended (120-160 characters)",
       );
     }
   } else {
@@ -198,7 +207,7 @@ export function getSocialShareUrls(url: string, title: string) {
  * Generate breadcrumb list for any page
  */
 export function generateBreadcrumbList(
-  items: Array<{ name: string; url: string }>
+  items: Array<{ name: string; url: string }>,
 ) {
   return {
     "@context": "https://schema.org",
@@ -216,7 +225,7 @@ export function generateBreadcrumbList(
  * Generate FAQ schema
  */
 export function generateFAQSchema(
-  faqs: Array<{ question: string; answer: string }>
+  faqs: Array<{ question: string; answer: string }>,
 ) {
   return {
     "@context": "https://schema.org",

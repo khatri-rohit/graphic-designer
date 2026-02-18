@@ -4,6 +4,7 @@ export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}#person`,
     name: siteConfig.author.name,
     url: siteConfig.url,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
@@ -12,10 +13,6 @@ export function generatePersonSchema() {
     sameAs: siteConfig.creator.sameAs,
     knowsAbout: siteConfig.keywords,
     email: siteConfig.author.email,
-    worksFor: {
-      "@type": "Organization",
-      name: siteConfig.author.name,
-    },
   };
 }
 
@@ -23,6 +20,7 @@ export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteConfig.url}#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/img/favicon-96x96.png`,
@@ -43,7 +41,8 @@ export function generateWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteConfig.title,
+    "@id": `${siteConfig.url}#website`,
+    name: siteConfig.socialTitle,
     url: siteConfig.url,
     description: siteConfig.description,
     inLanguage: "en-US",
@@ -62,35 +61,18 @@ export function generateProfessionalServiceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${siteConfig.url}#professional-service`,
     name: `${siteConfig.name} - Creative Design Services`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    "@id": siteConfig.url,
     url: siteConfig.url,
-    telephone: "",
     priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "India",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 28.6139,
-      longitude: 77.209,
-    },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
+    areaServed: "Worldwide",
+    availableLanguage: ["en"],
+    serviceType: siteConfig.services.map((service) => service.name),
+    founder: {
+      "@type": "Person",
+      "@id": `${siteConfig.url}#person`,
+      name: siteConfig.author.name,
     },
     sameAs: siteConfig.creator.sameAs,
   };
@@ -100,6 +82,7 @@ export function generateCreativeWorkSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${siteConfig.url}#creative-work`,
     name: siteConfig.title,
     description: siteConfig.description,
     url: siteConfig.url,
@@ -142,7 +125,7 @@ export function generateOfferCatalogSchema() {
 }
 
 export function generateBreadcrumbSchema(
-  items: Array<{ name: string; url: string }>
+  items: Array<{ name: string; url: string }>,
 ) {
   return {
     "@context": "https://schema.org",
